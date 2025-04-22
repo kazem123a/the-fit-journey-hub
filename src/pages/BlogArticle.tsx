@@ -14,6 +14,9 @@ const BlogArticle = () => {
     return <div>المقال غير موجود</div>;
   }
 
+  // Get the article content using the numeric ID as a key
+  const content = articleContent[article.id as keyof typeof articleContent];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -37,7 +40,7 @@ const BlogArticle = () => {
               </div>
             </div>
             <div className="prose max-w-none" dangerouslySetInnerHTML={{
-              __html: articleContent[id as keyof typeof articleContent]
+              __html: content || 'محتوى المقال غير متوفر'
             }} />
             <div className="text-center mt-12">
               <Button className="bg-fitness-purple text-white hover:bg-fitness-purple/90">
