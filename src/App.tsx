@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +12,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import BlogArticle from "./pages/BlogArticle";
+import BottomNav from "@/components/BottomNav"; // <-- إضافة الاستيراد هنا
 
 const queryClient = new QueryClient();
 
@@ -31,9 +33,11 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <BottomNav /> {/* الشريط السفلي يوضع هنا ليظهر في جميع الصفحات */}
       </TooltipProvider>
     </BrowserRouter>
   </QueryClientProvider>
 );
 
 export default App;
+
