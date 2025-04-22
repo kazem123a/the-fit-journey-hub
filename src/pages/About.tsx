@@ -2,7 +2,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card } from '@/components/ui/card';
-import { Dumbbell, Award, Users, Heart } from 'lucide-react';
+import { Dumbbell, Award, Users, Heart, Star } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const About = () => {
