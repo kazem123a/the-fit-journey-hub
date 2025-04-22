@@ -1,77 +1,10 @@
-
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Calendar, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
-const articles = [
-  {
-    id: 1,
-    title: '5 نصائح لزيادة حرق الدهون بشكل طبيعي',
-    excerpt: 'طرق مثبتة علمياً لتحفيز عملية التمثيل الغذائي وزيادة معدل حرق الدهون دون الحاجة للمكملات الغذائية.',
-    image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1000',
-    date: '20 أبريل 2025',
-    readTime: '5 دقائق',
-    category: 'تخسيس'
-  },
-  {
-    id: 2,
-    title: 'بناء العضلات للمبتدئين: دليل شامل',
-    excerpt: 'كل ما تحتاج معرفته لبدء رحلة بناء العضلات بشكل صحيح، من التغذية إلى التمارين المناسبة.',
-    image: 'https://images.unsplash.com/photo-1532384748853-8f54a8f476e2?auto=format&fit=crop&q=80&w=1000',
-    date: '15 أبريل 2025',
-    readTime: '8 دقائق',
-    category: 'بناء العضلات'
-  },
-  {
-    id: 3,
-    title: 'أهمية الراحة والاستشفاء في برنامجك التدريبي',
-    excerpt: 'لماذا تعتبر فترات الراحة ضرورية جداً لتحقيق نتائج أفضل وتجنب الإصابات في رحلتك الرياضية.',
-    image: 'https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&q=80&w=1000',
-    date: '10 أبريل 2025',
-    readTime: '6 دقائق',
-    category: 'استشفاء'
-  },
-  {
-    id: 4,
-    title: 'أفضل 10 أطعمة لزيادة مستويات الطاقة',
-    excerpt: 'أطعمة طبيعية تساعد على تحسين الأداء البدني وتزيد من مستويات الطاقة أثناء التمرين وخلال اليوم.',
-    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=1000',
-    date: '5 أبريل 2025',
-    readTime: '7 دقائق',
-    category: 'تغذية'
-  },
-  {
-    id: 5,
-    title: 'كيف تحافظ على الحماس والالتزام في رحلتك الرياضية',
-    excerpt: 'استراتيجيات فعالة للتغلب على التحديات النفسية والحفاظ على الدافع للتمرين على المدى الطويل.',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=1000',
-    date: '1 أبريل 2025',
-    readTime: '5 دقائق',
-    category: 'تحفيز'
-  },
-  {
-    id: 6,
-    title: 'أخطاء شائعة في تمارين القرفصاء وكيفية تصحيحها',
-    excerpt: 'تعرف على الأخطاء التقنية الشائعة في أداء تمرين القرفصاء وكيفية تصحيحها لتجنب الإصابات.',
-    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1000',
-    date: '25 مارس 2025',
-    readTime: '9 دقائق',
-    category: 'تقنية التمرين'
-  },
-];
-
-const categories = [
-  'الكل',
-  'تخسيس',
-  'بناء العضلات',
-  'تغذية',
-  'استشفاء',
-  'تحفيز',
-  'تقنية التمرين'
-];
+import { articles } from '@/data/articles';
 
 const Blog = () => {
   return (
@@ -95,7 +28,7 @@ const Blog = () => {
           
           {/* Categories */}
           <div className="flex flex-wrap gap-2 justify-center mb-12">
-            {categories.map(category => (
+            {['الكل', 'تخسيس', 'بناء العضلات', 'تغذية', 'استشفاء', 'تحفيز', 'تقنية التمرين'].map(category => (
               <button 
                 key={category}
                 className={`py-2 px-4 rounded-full ${
