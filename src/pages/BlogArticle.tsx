@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { articles, articleContent } from '@/data/articles';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -13,6 +13,11 @@ const BlogArticle = () => {
   const article = articles.find(a => a.id === Number(id));
   const { toast } = useToast();
   
+  // التمرير إلى أعلى الصفحة عند تغيير المقال
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+  
   if (!article) {
     return (
       <div className="min-h-screen flex flex-col">
@@ -22,7 +27,7 @@ const BlogArticle = () => {
             <h1 className="text-3xl font-bold mb-4">المقال غير موجود</h1>
             <p className="mb-6">عذراً، لم نتمكن من العثور على المقال الذي تبحث عنه</p>
             <Button asChild>
-              <a href="/blog">العودة إلى المدونة</a>
+              <Link to="/blog">العودة إلى المدونة</Link>
             </Button>
           </div>
         </main>
@@ -32,7 +37,7 @@ const BlogArticle = () => {
   }
 
   // Get the article content using the numeric ID as a key
-  const content = articleContent[article.id as keyof typeof articleContent];
+  const content = articleContent[article.id as keyof typeof articleContent] || '<p>محتوى المقال غير متوفر حالياً</p>';
   
   // Handle share action
   const handleShare = () => {
@@ -72,9 +77,9 @@ const BlogArticle = () => {
         <div className="container mx-auto max-w-4xl px-4">
           <div className="mb-6">
             <Button variant="ghost" className="mb-4" asChild>
-              <a href="/blog">
+              <Link to="/blog">
                 <ArrowLeft className="ml-2 h-4 w-4" /> العودة إلى المدونة
-              </a>
+              </Link>
             </Button>
           </div>
           
@@ -84,6 +89,7 @@ const BlogArticle = () => {
                 src={article.image} 
                 alt={article.title} 
                 className="w-full h-72 md:h-96 object-cover rounded-lg mb-8"
+                loading="lazy"
               />
               <div className="absolute top-4 right-4">
                 <span className="bg-fitness-purple text-white text-xs py-1 px-3 rounded-full">
@@ -129,7 +135,7 @@ const BlogArticle = () => {
             <div 
               className="prose max-w-none prose-headings:text-fitness-dark prose-headings:font-bold prose-h2:text-2xl prose-h3:text-xl prose-p:text-gray-800 prose-a:text-fitness-purple prose-li:text-gray-800 prose-blockquote:text-gray-700 prose-blockquote:border-fitness-purple" 
               dangerouslySetInnerHTML={{
-                __html: content || 'محتوى المقال غير متوفر'
+                __html: content
               }} 
             />
             
@@ -139,6 +145,7 @@ const BlogArticle = () => {
                   src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=120"
                   alt="المؤلف"
                   className="w-20 h-20 rounded-full object-cover"
+                  loading="lazy"
                 />
                 <div>
                   <h3 className="font-bold text-lg mb-2">أحمد خالد</h3>
@@ -160,17 +167,18 @@ const BlogArticle = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {articles.filter(a => a.id !== article.id && a.category === article.category).slice(0, 3).map(relatedArticle => (
                   <div key={relatedArticle.id} className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                    <a href={`/blog/${relatedArticle.id}`}>
+                    <Link to={`/blog/${relatedArticle.id}`}>
                       <img 
                         src={relatedArticle.image} 
                         alt={relatedArticle.title}
                         className="w-full h-40 object-cover"
+                        loading="lazy"
                       />
                       <div className="p-4">
                         <h4 className="font-bold mb-2 line-clamp-2">{relatedArticle.title}</h4>
                         <p className="text-sm text-gray-600 line-clamp-2">{relatedArticle.excerpt}</p>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                 ))}
               </div>

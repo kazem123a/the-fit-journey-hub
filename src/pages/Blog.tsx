@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Calendar, Search } from 'lucide-react';
@@ -22,11 +22,22 @@ const ITEMS_PER_PAGE = 6; // عدد المقالات في كل صفحة
 const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeCategory, setActiveCategory] = useState('الكل');
+  const [searchQuery, setSearchQuery] = useState('');
   
-  // تصفية المقالات حسب الفئة المحددة
-  const filteredArticles = activeCategory === 'الكل'
-    ? articles
-    : articles.filter(article => article.category === activeCategory);
+  // التمرير إلى أعلى الصفحة عند تغيير الصفحة
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage, activeCategory]);
+  
+  // تصفية المقالات حسب الفئة المحددة والبحث
+  const filteredArticles = articles.filter(article => {
+    const matchesCategory = activeCategory === 'الكل' || article.category === activeCategory;
+    const matchesSearch = searchQuery === '' || 
+      article.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    return matchesCategory && matchesSearch;
+  });
     
   // حساب عدد الصفحات الكلي
   const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE);
@@ -41,7 +52,6 @@ const Blog = () => {
   const goToNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
-      window.scrollTo(0, 0); // التمرير لأعلى الصفحة
     }
   };
   
@@ -49,14 +59,18 @@ const Blog = () => {
   const goToPreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
-      window.scrollTo(0, 0); // التمرير لأعلى الصفحة
     }
   };
   
   // التنقل إلى صفحة محددة
   const goToPage = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo(0, 0); // التمرير لأعلى الصفحة
+  };
+
+  // معالجة البحث
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+    setCurrentPage(1); // إعادة التعيين إلى الصفحة الأولى عند البحث
   };
 
   // قائمة الفئات الفريدة من المقالات
@@ -77,7 +91,12 @@ const Blog = () => {
             {/* Search Bar */}
             <div className="relative max-w-md mx-auto">
               <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              <Input placeholder="ابحث عن مقالات..." className="pr-10 py-6" />
+              <Input 
+                placeholder="ابحث عن مقالات..." 
+                className="pr-10 py-6" 
+                value={searchQuery}
+                onChange={handleSearch}
+              />
             </div>
           </div>
           
@@ -110,6 +129,7 @@ const Blog = () => {
                     src={article.image} 
                     alt={article.title}
                     className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                    loading="lazy"
                   />
                 </div>
                 <div className="absolute top-4 right-4">
@@ -137,6 +157,14 @@ const Blog = () => {
               </Card>
             ))}
           </div>
+          
+          {/* رسالة عندما لا توجد مقالات */}
+          {currentArticles.length === 0 && (
+            <div className="text-center py-10">
+              <h3 className="text-2xl font-semibold mb-2">لا توجد مقالات مطابقة</h3>
+              <p className="text-gray-600">جرب تغيير معايير البحث أو الفئة</p>
+            </div>
+          )}
           
           {/* Pagination - استخدام مكونات shadcn/ui للتنقل بين الصفحات */}
           {totalPages > 1 && (

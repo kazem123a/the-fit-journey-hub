@@ -6,16 +6,16 @@ import { Calendar } from 'lucide-react';
 const articles = [
   {
     id: 1,
-    title: '5 نصائح لزيادة حرق الدهون بشكل طبيعي',
-    excerpt: 'طرق مثبتة علمياً لتحفيز عملية التمثيل الغذائي وزيادة معدل حرق الدهون دون الحاجة للمكملات الغذائية.',
+    title: 'أفضل 5 تمارين كارديو لحرق الدهون',
+    excerpt: 'اكتشف التمارين الهوائية الأكثر فعالية للتخلص من الدهون الزائدة وتحسين صحة القلب والأوعية الدموية.',
     image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1000',
     date: '20 أبريل 2025',
     readTime: '5 دقائق'
   },
   {
     id: 2,
-    title: 'بناء العضلات للمبتدئين: دليل شامل',
-    excerpt: 'كل ما تحتاج معرفته لبدء رحلة بناء العضلات بشكل صحيح، من التغذية إلى التمارين المناسبة.',
+    title: 'وصفات صحية وسريعة لوجبات ما بعد التمرين',
+    excerpt: 'استعد طاقتك بعد التمرين بوصفات لذيذة ومغذية تساعد على استشفاء العضلات وتعزيز الأداء.',
     image: 'https://images.unsplash.com/photo-1532384748853-8f54a8f476e2?auto=format&fit=crop&q=80&w=1000',
     date: '15 أبريل 2025',
     readTime: '8 دقائق'
@@ -47,6 +47,7 @@ const BlogPreview = () => {
                   src={article.image} 
                   alt={article.title}
                   className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                  loading="lazy"
                 />
               </div>
               <CardHeader>
