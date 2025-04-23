@@ -1,4 +1,3 @@
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Star, ShoppingCart, Link as LinkIcon } from 'lucide-react';
@@ -108,6 +107,166 @@ const products: Product[] = [
     category: 'مكملات',
     rating: 4
   },
+  {
+    id: 1001,
+    title: "بنطلون رياضي نسائي SOISOU بتصميم مضلع",
+    description: "بنطلون عالي المرونة ومريح، مثالي لليوغا والتمارين اليومية، متوفر بـ7 ألوان.",
+    image: "https://images.unsplash.com/photo-1517344800994-80b20463999c?auto=format&fit=crop&q=80&w=1000", // استبدلها لاحقاً
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_okzFNiH",
+    category: "ملابس",
+    rating: 5
+  },
+  {
+    id: 1002,
+    title: "حبل قفز قابل للتعديل بأسلاك الفولاذ",
+    description: "مثالي لتمارين الكارديو وحرق الدهون بسرعة، يتميز بخفة الوزن وسهولة التعديل.",
+    image: "https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_oDGGxQz",
+    category: "معدات",
+    rating: 4.5
+  },
+  {
+    id: 1003,
+    title: "بنطلون رياضي نسائي بخصر عالٍ بدون درز",
+    description: "بنطلون يرفع المؤخرة ويوفر راحة وأناقة أثناء الجري أو تمارين الصالة.",
+    image: "https://images.unsplash.com/photo-1584308878768-57d8a2677325?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_onMsUDn",
+    category: "ملابس",
+    rating: 4.5
+  },
+  {
+    id: 1004,
+    title: "قفازات رفع الأثقال للتمارين المكثفة",
+    description: "توفر قبضة ثابتة وحماية لليدين أثناء رفع الأوزان أو استخدام أجهزة الجيم.",
+    image: "https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_oDH0vN3",
+    category: "اكسسوارات",
+    rating: 5
+  },
+  {
+    id: 1005,
+    title: "مقابض لحبال المقاومة والتمارين",
+    description: "مقابض قوية ومريحة للاستخدام مع حبال المقاومة، مثالية لتقوية الجزء العلوي من الجسم.",
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_oBNHbTR",
+    category: "معدات",
+    rating: 4
+  },
+  {
+    id: 1006,
+    title: "شريط مقاومة مرن TPE",
+    description: "مثالي لتقوية الكتفين والوركين والظهر، مناسب لليوغا والتمارين المنزلية.",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_op6XxA5",
+    category: "معدات",
+    rating: 4.5
+  },
+  {
+    id: 1007,
+    title: "حبل قفز بوزن مدمج للأداء العالي",
+    description: "حبل احترافي مناسب للملاكمة والكروسفيت، يساعد على حرق السعرات بسرعة.",
+    image: "https://images.unsplash.com/photo-1606923829579-0cb981a83e2a?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_omZTZbr",
+    category: "معدات",
+    rating: 4.5
+  },
+  {
+    id: 1008,
+    title: "شريط مقاومة على شكل رقم 8",
+    description: "أداة مرنة وسهلة الاستخدام لتقوية الذراعين والكتفين، مثالية للتمارين المنزلية.",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_oDDq6sH",
+    category: "معدات",
+    rating: 4
+  },
+  {
+    id: 1009,
+    title: "بنطلون رياضي بتصميم فقاعة لرفع الورك",
+    description: "بنطلون بخصر عالٍ يمنحك شكلاً مشدودًا ومظهرًا رياضيًا أثناء التمارين.",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_oomMdVb",
+    category: "ملابس",
+    rating: 4
+  },
+  {
+    id: 1010,
+    title: "حزام دعم مفصل الورك (SI)",
+    description: "مصمم لتقويم الحوض وتخفيف آلام أسفل الظهر، مناسب للرجال والنساء.",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_oBxMf3X",
+    category: "اكسسوارات",
+    rating: 4.5
+  },
+  {
+    id: 1011,
+    title: "بنطلون رياضي نسائي سكرتش بخصر مرتفع",
+    description: "بنطلون مريح وجذاب، بتصميم يعزز شكل المؤخرة ومناسب للتمارين المختلفة.",
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_okZAKPb",
+    category: "ملابس",
+    rating: 5
+  },
+  {
+    id: 1012,
+    title: "عصا بيلاتيس متعددة الوظائف",
+    description: "أداة تدريب مرنة تساعد على تقوية عضلات الجسم بالكامل من المنزل.",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_oC7Xk7L",
+    category: "معدات",
+    rating: 4.5
+  },
+  {
+    id: 1013,
+    title: "عجلة تمارين البطن (AB Wheel)",
+    description: "أداة فعالة لتقوية عضلات البطن والجزء العلوي من الجسم، سهلة الاستخدام.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_omYmQFL",
+    category: "معدات",
+    rating: 4.5
+  },
+  {
+    id: 1014,
+    title: "بنطلون رياضي نسائي بمرونة عالية وخصر مرتفع",
+    description: "تصميم مريح يدعم الحركة أثناء التمارين ويوفر ثباتًا وأناقة.",
+    image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_oni4JrP",
+    category: "ملابس",
+    rating: 4
+  },
+  {
+    id: 1015,
+    title: "حبل قفز بمحمل مزدوج من الألمنيوم",
+    description: "حبل تمرين احترافي يوفر حركة سلسة وسرعة عالية، مثالي للمستخدمين المتقدمين.",
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_oE5dpd7",
+    category: "معدات",
+    rating: 4.5
+  },
+  {
+    id: 1016,
+    title: "جهاز ملاكمة LED للتدريب المنزلي",
+    description: "لعبة تفاعلية ممتعة للصغار والكبار، تطور سرعة رد الفعل وتضيف متعة للتمرين.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000",
+    price: "اطلب الآن",
+    link: "https://s.click.aliexpress.com/e/_oo3PwOZ",
+    category: "معدات",
+    rating: 5
+  }
 ];
 
 const Products = () => {
@@ -142,6 +301,7 @@ const Products = () => {
                 <TabsTrigger value="معدات">معدات</TabsTrigger>
                 <TabsTrigger value="مكملات">مكملات</TabsTrigger>
                 <TabsTrigger value="اكسسوارات">اكسسوارات</TabsTrigger>
+                <TabsTrigger value="ملابس">ملابس</TabsTrigger>
               </TabsList>
             </div>
             
@@ -155,7 +315,7 @@ const Products = () => {
             
             <TabsContent value="معدات" className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredProducts.map(product => (
+                {filteredProducts.filter(product => product.category === 'معدات').map(product => (
                   <ProductCard key={product.id} product={product} />
                 ))}
               </div>
@@ -163,7 +323,7 @@ const Products = () => {
             
             <TabsContent value="مكملات" className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredProducts.map(product => (
+                {filteredProducts.filter(product => product.category === 'مكملات').map(product => (
                   <ProductCard key={product.id} product={product} />
                 ))}
               </div>
@@ -171,7 +331,15 @@ const Products = () => {
             
             <TabsContent value="اكسسوارات" className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredProducts.map(product => (
+                {filteredProducts.filter(product => product.category === 'اكسسوارات').map(product => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="ملابس" className="mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {filteredProducts.filter(product => product.category === 'ملابس').map(product => (
                   <ProductCard key={product.id} product={product} />
                 ))}
               </div>
