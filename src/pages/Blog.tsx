@@ -1,3 +1,5 @@
+
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Calendar, Search } from 'lucide-react';
@@ -5,8 +7,61 @@ import { Input } from '@/components/ui/input';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { articles } from '@/data/articles';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+
+const ITEMS_PER_PAGE = 6; // عدد المقالات في كل صفحة
 
 const Blog = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [activeCategory, setActiveCategory] = useState('الكل');
+  
+  // تصفية المقالات حسب الفئة المحددة
+  const filteredArticles = activeCategory === 'الكل'
+    ? articles
+    : articles.filter(article => article.category === activeCategory);
+    
+  // حساب عدد الصفحات الكلي
+  const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE);
+  
+  // الحصول على مقالات الصفحة الحالية
+  const currentArticles = filteredArticles.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+  
+  // التنقل إلى الصفحة التالية
+  const goToNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+      window.scrollTo(0, 0); // التمرير لأعلى الصفحة
+    }
+  };
+  
+  // التنقل إلى الصفحة السابقة
+  const goToPreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+      window.scrollTo(0, 0); // التمرير لأعلى الصفحة
+    }
+  };
+  
+  // التنقل إلى صفحة محددة
+  const goToPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0); // التمرير لأعلى الصفحة
+  };
+
+  // قائمة الفئات الفريدة من المقالات
+  const categories = ['الكل', ...Array.from(new Set(articles.map(article => article.category)))];
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -28,14 +83,18 @@ const Blog = () => {
           
           {/* Categories */}
           <div className="flex flex-wrap gap-2 justify-center mb-12">
-            {['الكل', 'تخسيس', 'بناء العضلات', 'تغذية', 'استشفاء', 'تحفيز', 'تقنية التمرين'].map(category => (
+            {categories.map(category => (
               <button 
                 key={category}
                 className={`py-2 px-4 rounded-full ${
-                  category === 'الكل' 
+                  category === activeCategory 
                     ? 'bg-fitness-purple text-white' 
                     : 'bg-gray-100 text-gray-700 hover:bg-fitness-purple/10'
                 } transition-colors`}
+                onClick={() => {
+                  setActiveCategory(category);
+                  setCurrentPage(1); // إعادة التعيين إلى الصفحة الأولى عند تغيير الفئة
+                }}
               >
                 {category}
               </button>
@@ -44,7 +103,7 @@ const Blog = () => {
           
           {/* Blog Articles */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map(article => (
+            {currentArticles.map(article => (
               <Card key={article.id} className="overflow-hidden hover:shadow-lg transition-all">
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -79,30 +138,71 @@ const Blog = () => {
             ))}
           </div>
           
-          {/* Pagination */}
-          <div className="flex justify-center mt-12">
-            <nav className="flex items-center gap-1">
-              <button className="w-10 h-10 flex items-center justify-center rounded-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
-                &larr;
-              </button>
-              <button className="w-10 h-10 flex items-center justify-center rounded-md border border-fitness-purple bg-fitness-purple text-white">
-                1
-              </button>
-              <button className="w-10 h-10 flex items-center justify-center rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
-                2
-              </button>
-              <button className="w-10 h-10 flex items-center justify-center rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
-                3
-              </button>
-              <span className="w-10 h-10 flex items-center justify-center">...</span>
-              <button className="w-10 h-10 flex items-center justify-center rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
-                8
-              </button>
-              <button className="w-10 h-10 flex items-center justify-center rounded-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
-                &rarr;
-              </button>
-            </nav>
-          </div>
+          {/* Pagination - استخدام مكونات shadcn/ui للتنقل بين الصفحات */}
+          {totalPages > 1 && (
+            <div className="mt-12">
+              <Pagination dir="rtl">
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious 
+                      onClick={goToPreviousPage} 
+                      className={currentPage === 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                    />
+                  </PaginationItem>
+                  
+                  {/* عرض الأرقام للصفحات الأولى */}
+                  {[...Array(Math.min(3, totalPages))].map((_, i) => (
+                    <PaginationItem key={i + 1}>
+                      <PaginationLink
+                        isActive={currentPage === i + 1}
+                        onClick={() => goToPage(i + 1)}
+                      >
+                        {i + 1}
+                      </PaginationLink>
+                    </PaginationItem>
+                  ))}
+                  
+                  {/* إذا كان هناك أكثر من 6 صفحات، أضف علامة الحذف */}
+                  {totalPages > 6 && currentPage < totalPages - 2 && (
+                    <PaginationItem>
+                      <PaginationEllipsis />
+                    </PaginationItem>
+                  )}
+                  
+                  {/* عرض صفحات إضافية قريبة من الصفحة الحالية */}
+                  {totalPages > 3 && currentPage > 3 && currentPage < totalPages - 1 && (
+                    <PaginationItem>
+                      <PaginationLink 
+                        isActive={true}
+                        onClick={() => {}}
+                      >
+                        {currentPage}
+                      </PaginationLink>
+                    </PaginationItem>
+                  )}
+                  
+                  {/* عرض الصفحة الأخيرة دائمًا إذا كان هناك أكثر من 3 صفحات */}
+                  {totalPages > 3 && (
+                    <PaginationItem>
+                      <PaginationLink
+                        isActive={currentPage === totalPages}
+                        onClick={() => goToPage(totalPages)}
+                      >
+                        {totalPages}
+                      </PaginationLink>
+                    </PaginationItem>
+                  )}
+                  
+                  <PaginationItem>
+                    <PaginationNext 
+                      onClick={goToNextPage}
+                      className={currentPage === totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                    />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            </div>
+          )}
         </div>
       </main>
       <Footer />
