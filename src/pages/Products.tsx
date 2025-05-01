@@ -18,96 +18,6 @@ type Product = {
 
 const products: Product[] = [
   {
-    id: 1,
-    title: 'حزام تمرين قابل للتعديل',
-    description: 'حزام تمرين عالي الجودة يوفر دعماً إضافياً للظهر أثناء التمارين الشاقة، مصنوع من مواد متينة ومريحة.',
-    image: 'https://images.unsplash.com/photo-1517344800994-80b20463999c?auto=format&fit=crop&q=80&w=1000',
-    price: '29.99$',
-    link: '#',
-    category: 'معدات',
-    rating: 4.5
-  },
-  {
-    id: 2,
-    title: 'مكمل بروتين واي عالي النقاء',
-    description: 'مكمل بروتين واي عالي الجودة، يحتوي على 24 جرام بروتين في الجرعة الواحدة ونسبة امتصاص عالية.',
-    image: 'https://images.unsplash.com/photo-1607443053474-db8f0b327dd8?auto=format&fit=crop&q=80&w=1000',
-    price: '39.99$',
-    link: '#',
-    category: 'مكملات',
-    rating: 5
-  },
-  {
-    id: 3,
-    title: 'مجموعة أوزان يد قابلة للتعديل',
-    description: 'مجموعة أوزان يد متعددة الأوزان، قابلة للتعديل من 2 إلى 24 كجم، مثالية للاستخدام المنزلي وتوفير المساحة.',
-    image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=1000',
-    price: '159.99$',
-    link: '#',
-    category: 'معدات',
-    rating: 4
-  },
-  {
-    id: 4,
-    title: 'أحزمة مقاومة متعددة المستويات',
-    description: 'مجموعة من 5 أحزمة مقاومة بمستويات مختلفة، مثالية للتمارين المنزلية وتمارين اللياقة البدنية المتنوعة.',
-    image: 'https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?auto=format&fit=crop&q=80&w=1000',
-    price: '24.99$',
-    link: '#',
-    category: 'معدات',
-    rating: 4.5
-  },
-  {
-    id: 5,
-    title: 'مكمل الكرياتين المونوهيدرات',
-    description: 'كرياتين مونوهيدرات نقي بنسبة 100%، يساعد على زيادة القوة والقدرة على التحمل وتسريع استشفاء العضلات.',
-    image: 'https://images.unsplash.com/photo-1606889464198-fcb18894cf50?auto=format&fit=crop&q=80&w=1000',
-    price: '19.99$',
-    link: '#',
-    category: 'مكملات',
-    rating: 4.5
-  },
-  {
-    id: 6,
-    title: 'زجاجة مياه رياضية',
-    description: 'زجاجة مياه رياضية سعة 1 لتر مع مقياس، مصنوعة من مواد خالية من BPA، مثالية للتمارين والاستخدام اليومي.',
-    image: 'https://images.unsplash.com/photo-1556710807-a9526a318475?auto=format&fit=crop&q=80&w=1000',
-    price: '14.99$',
-    link: '#',
-    category: 'اكسسوارات',
-    rating: 5
-  },
-  {
-    id: 7,
-    title: 'قفازات تمرين مضادة للانزلاق',
-    description: 'قفازات تمرين عالية الجودة مضادة للانزلاق، توفر حماية للكفين أثناء التمارين القوية وتحسن القبضة.',
-    image: 'https://images.unsplash.com/photo-1583454155184-870a1f63aebc?auto=format&fit=crop&q=80&w=1000',
-    price: '17.99$',
-    link: '#',
-    category: 'اكسسوارات',
-    rating: 4
-  },
-  {
-    id: 8,
-    title: 'سماعات رياضية لاسلكية',
-    description: 'سماعات رياضية لاسلكية مقاومة للماء والعرق، مع جودة صوت عالية وبطارية تدوم لفترة طويلة.',
-    image: 'https://images.unsplash.com/photo-1606923829579-0cb981a83e2a?auto=format&fit=crop&q=80&w=1000',
-    price: '69.99$',
-    link: '#',
-    category: 'اكسسوارات',
-    rating: 4.5
-  },
-  {
-    id: 9,
-    title: 'فيتامينات متعددة للرياضيين',
-    description: 'مكمل فيتامينات ومعادن متعددة مصمم خصيصاً للرياضيين، يدعم الأداء البدني والمناعة والاستشفاء.',
-    image: 'https://images.unsplash.com/photo-1584308878768-57d8a2677325?auto=format&fit=crop&q=80&w=1000',
-    price: '24.99$',
-    link: '#',
-    category: 'مكملات',
-    rating: 4
-  },
-  {
     id: 1001,
     title: "بنطلون رياضي نسائي SOISOU بتصميم مضلع",
     description: "بنطلون عالي المرونة ومريح، مثالي لليوغا والتمارين اليومية، متوفر بـ7 ألوان.",
@@ -299,7 +209,6 @@ const Products = () => {
               <TabsList className="bg-gray-100">
                 <TabsTrigger value="all">الكل</TabsTrigger>
                 <TabsTrigger value="معدات">معدات</TabsTrigger>
-                <TabsTrigger value="مكملات">مكملات</TabsTrigger>
                 <TabsTrigger value="اكسسوارات">اكسسوارات</TabsTrigger>
                 <TabsTrigger value="ملابس">ملابس</TabsTrigger>
               </TabsList>
@@ -316,14 +225,6 @@ const Products = () => {
             <TabsContent value="معدات" className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {filteredProducts.filter(product => product.category === 'معدات').map(product => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="مكملات" className="mt-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredProducts.filter(product => product.category === 'مكملات').map(product => (
                   <ProductCard key={product.id} product={product} />
                 ))}
               </div>
