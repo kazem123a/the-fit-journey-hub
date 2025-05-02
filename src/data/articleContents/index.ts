@@ -2,15 +2,16 @@
 import { content as article1 } from './article1';
 import { content as article2 } from './article2';
 import { content as article3 } from './article3';
+import { content as article4 } from './article4';
 import { content as article16 } from './article16';
 
 export const articleContent: Record<number, string> = {
   1: article1,
   2: article2,
   3: article3,
+  4: article4,
   16: article16,
   // Add placeholders for the rest of the articles
-  4: '<p>محتوى المقال عن أهمية شرب الماء</p>',
   5: '<p>محتوى المقال عن تمارين الإطالة</p>',
   6: '<p>محتوى المقال عن الرياضة في رمضان</p>',
   7: '<p>محتوى المقال عن التمارين المنزلية</p>',
