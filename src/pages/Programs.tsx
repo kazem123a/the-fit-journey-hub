@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Dumbbell } from 'lucide-react';
+import { Dumbbell, Heart, Calendar, Award, User } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -21,7 +21,25 @@ const programs = [
       'فيديوهات توضيحية للتمارين',
       'متابعة أسبوعية',
       'دعم عبر البريد الإلكتروني'
-    ]
+    ],
+    detailedDescription: `
+      <p><strong>تفاصيل البرنامج:</strong></p>
+      <p>برنامج التحول في 8 أسابيع هو نظام متكامل صمم خصيصاً للأشخاص الذين يرغبون في تحقيق نتائج سريعة وملموسة في فترة زمنية قصيرة. يتكون البرنامج من:</p>
+      
+      <ul>
+        <li><strong>تقييم مبدئي للياقة البدنية:</strong> لتحديد نقطة البداية وتخصيص التمارين المناسبة لك</li>
+        <li><strong>5 تمارين أسبوعية:</strong> موزعة على مجموعات عضلية مختلفة لضمان التناسق</li>
+        <li><strong>خطة غذائية متوازنة:</strong> تركز على خفض السعرات الحرارية مع الحفاظ على العضلات</li>
+        <li><strong>قياسات أسبوعية:</strong> لمتابعة التقدم وتعديل الخطة عند الحاجة</li>
+      </ul>
+      
+      <p><strong>الفئة المستهدفة:</strong></p>
+      <p>مناسب للمبتدئين والمتوسطين الذين يمتلكون خبرة بسيطة في التمارين الرياضية وبحاجة إلى توجيه كامل.</p>
+      
+      <p><strong>النتائج المتوقعة:</strong></p>
+      <p>فقدان 4-8 كيلوغرام من وزن الجسم (يعتمد على الالتزام والحالة البدنية الأولية)، تحسن في مستوى اللياقة البدنية، وزيادة في كتلة العضلات.</p>
+    `,
+    icon: Heart
   },
   {
     id: 2,
@@ -37,7 +55,25 @@ const programs = [
       'فيديوهات تقنية التمارين المتقدمة',
       'متابعة أسبوعية',
       'استشارات مباشرة'
-    ]
+    ],
+    detailedDescription: `
+      <p><strong>تفاصيل البرنامج:</strong></p>
+      <p>برنامج كمال الأجسام المتقدم هو نظام احترافي لبناء العضلات وزيادة حجمها وقوتها. يتكون من:</p>
+      
+      <ul>
+        <li><strong>تدريب منقسم (Split Training):</strong> 6 تمارين أسبوعية مقسمة على مجموعات عضلية محددة</li>
+        <li><strong>تقنيات متقدمة:</strong> مثل السوبر سيت، دروب سيت، وتقنيات التضخيم المتخصصة</li>
+        <li><strong>خطة تغذية عالية البروتين:</strong> بمعدل 2-2.5 جرام بروتين لكل كيلوغرام من وزن الجسم</li>
+        <li><strong>جداول تدريب للقوة والحجم:</strong> بتناوب خلال فترات البرنامج</li>
+      </ul>
+      
+      <p><strong>الفئة المستهدفة:</strong></p>
+      <p>مخصص للرياضيين ذوي الخبرة (سنتين تدريب على الأقل) والذين لديهم معرفة جيدة بتقنيات التمارين الأساسية.</p>
+      
+      <p><strong>النتائج المتوقعة:</strong></p>
+      <p>زيادة في حجم العضلات بنسبة 3-5% (تعتمد على مستوى اللاعب وخبرته)، تحسين في قوة العضلات، وتحسن في تناسق شكل الجسم.</p>
+    `,
+    icon: Dumbbell
   },
   {
     id: 3,
@@ -53,7 +89,25 @@ const programs = [
       '5 تمارين في الأسبوع',
       'خيارات منخفضة الشدة',
       'فيديوهات توضيحية'
-    ]
+    ],
+    detailedDescription: `
+      <p><strong>تفاصيل البرنامج:</strong></p>
+      <p>برنامج التمارين المنزلية صمم ليناسب الأشخاص الذين يفضلون ممارسة الرياضة في المنزل دون الحاجة لمعدات متخصصة. يشمل البرنامج:</p>
+      
+      <ul>
+        <li><strong>تمارين باستخدام وزن الجسم:</strong> تمارين فعالة لتقوية العضلات وحرق الدهون</li>
+        <li><strong>جلسات HIIT:</strong> تمارين عالية الكثافة لفترات قصيرة لزيادة حرق السعرات</li>
+        <li><strong>تمارين المرونة والتوازن:</strong> لتحسين وظائف الجسم وتقليل خطر الإصابات</li>
+        <li><strong>اقتراحات لأدوات منزلية بسيطة:</strong> مثل زجاجات الماء كأوزان أو المناشف للتمارين المقاومة</li>
+      </ul>
+      
+      <p><strong>الفئة المستهدفة:</strong></p>
+      <p>مناسب للجميع، خاصة للمبتدئين، كبار السن، والأشخاص المشغولين الذين يبحثون عن حلول مرنة للتمرين.</p>
+      
+      <p><strong>النتائج المتوقعة:</strong></p>
+      <p>تحسن في اللياقة العامة، زيادة في القوة العضلية، فقدان الوزن الزائد (1-2 كيلو شهرياً)، وتحسين مستوى الطاقة والمزاج العام.</p>
+    `,
+    icon: User
   },
   {
     id: 4,
@@ -69,7 +123,25 @@ const programs = [
       'نصائح تقنية متقدمة',
       'خطة تغذية داعمة للقوة',
       'متابعة مستوى التقدم'
-    ]
+    ],
+    detailedDescription: `
+      <p><strong>تفاصيل البرنامج:</strong></p>
+      <p>برنامج القوة والقدرة مصمم لبناء أقصى قدر من القوة العضلية والأداء الرياضي. يتكون من:</p>
+      
+      <ul>
+        <li><strong>التدريبات الأساسية للقوة:</strong> مثل السكوات، الديدليفت، البنش برس، والعسكرية</li>
+        <li><strong>نظام تدريبي مرحلي:</strong> يبدأ ببناء قاعدة القوة ثم ينتقل للتمارين الانفجارية</li>
+        <li><strong>تدريبات البليومترك:</strong> لتحسين القدرة العضلية والسرعة والقوة الانفجارية</li>
+        <li><strong>تقنيات استشفاء متقدمة:</strong> لتقليل الإجهاد العضلي والتعافي بشكل أسرع</li>
+      </ul>
+      
+      <p><strong>الفئة المستهدفة:</strong></p>
+      <p>مناسب للرياضيين ولاعبي الرياضات التنافسية، وأي شخص يرغب في تطوير قوته البدنية بشكل ملحوظ.</p>
+      
+      <p><strong>النتائج المتوقعة:</strong></p>
+      <p>زيادة في القوة القصوى بنسبة 15-25% (حسب المستوى الأولي)، تحسن في الأداء الرياضي، زيادة في القدرة العضلية، وتطور في تقنية التمارين الأساسية.</p>
+    `,
+    icon: Award
   },
   {
     id: 5,
@@ -85,7 +157,25 @@ const programs = [
       'نصائح للمبتدئين',
       'خطة بناء العادات الصحية',
       'فيديوهات تعليمية أساسية'
-    ]
+    ],
+    detailedDescription: `
+      <p><strong>تفاصيل البرنامج:</strong></p>
+      <p>برنامج اللياقة للمبتدئين هو نقطة انطلاق مثالية لمن يبدأ رحلة اللياقة البدنية. يشمل البرنامج:</p>
+      
+      <ul>
+        <li><strong>مرحلة التأسيس (2 أسابيع):</strong> تعلم التقنيات الأساسية وبناء القاعدة</li>
+        <li><strong>مرحلة البناء (4 أسابيع):</strong> زيادة تدريجية في شدة التمارين ومدتها</li>
+        <li><strong>دليل كامل للتغذية الأساسية:</strong> مع خيارات وجبات بسيطة وصحية</li>
+        <li><strong>نظام لبناء العادات:</strong> خطوات يومية صغيرة لترسيخ نمط حياة صحي</li>
+      </ul>
+      
+      <p><strong>الفئة المستهدفة:</strong></p>
+      <p>الأشخاص الذين لم يمارسوا الرياضة من قبل، أو عادوا بعد انقطاع طويل، أو يبحثون عن بداية آمنة وفعالة.</p>
+      
+      <p><strong>النتائج المتوقعة:</strong></p>
+      <p>تحسن في المستوى العام للياقة البدنية، اكتساب عادات صحية مستدامة، تعلم التقنيات الصحيحة للتمارين الرئيسية، وزيادة الثقة في الممارسة الرياضية.</p>
+    `,
+    icon: User
   },
   {
     id: 6,
@@ -101,16 +191,45 @@ const programs = [
       'خيارات للنباتيين',
       'نصائح إعداد الوجبات مسبقاً',
       'حاسبة السعرات الحرارية'
-    ]
+    ],
+    detailedDescription: `
+      <p><strong>تفاصيل البرنامج:</strong></p>
+      <p>خطة التغذية المتوازنة هي دليل شامل للتغذية السليمة بما يتناسب مع أهدافك الرياضية. تتضمن:</p>
+      
+      <ul>
+        <li><strong>30 يومًا من خطط الوجبات المتكاملة:</strong> فطور، غداء، عشاء، ووجبات خفيفة</li>
+        <li><strong>3 خيارات مختلفة:</strong> لفقدان الوزن، زيادة العضلات، أو تحسين الصحة العامة</li>
+        <li><strong>قوائم تسوق أسبوعية:</strong> لتوفير الوقت والجهد</li>
+        <li><strong>نصائح لتحضير الوجبات مسبقًا:</strong> لضمان الالتزام حتى في الأيام المزدحمة</li>
+        <li><strong>حاسبة سعرات حرارية مخصصة:</strong> لضبط الخطة حسب احتياجاتك الفردية</li>
+      </ul>
+      
+      <p><strong>الفئة المستهدفة:</strong></p>
+      <p>مناسبة للجميع، وخاصة الأشخاص الذين يرغبون في تحسين تغذيتهم لدعم أهدافهم الرياضية والصحية.</p>
+      
+      <p><strong>النتائج المتوقعة:</strong></p>
+      <p>تحسين العادات الغذائية، زيادة الطاقة، دعم أهداف اللياقة البدنية (سواء كانت فقدان وزن أو بناء عضلات)، وتحسين المؤشرات الصحية العامة.</p>
+    `,
+    icon: Calendar
   },
 ];
 
 const Programs = () => {
   const [activeTab, setActiveTab] = useState('all');
+  const [selectedProgram, setSelectedProgram] = useState<number | null>(null);
   
   const filteredPrograms = activeTab === 'all' 
     ? programs 
     : programs.filter(program => program.category === activeTab);
+  
+  // Toggle program details
+  const toggleProgramDetails = (id: number) => {
+    if (selectedProgram === id) {
+      setSelectedProgram(null);
+    } else {
+      setSelectedProgram(id);
+    }
+  };
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -145,7 +264,12 @@ const Programs = () => {
             <TabsContent value="all" className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredPrograms.map(program => (
-                  <ProgramCard key={program.id} program={program} />
+                  <ProgramCard 
+                    key={program.id} 
+                    program={program}
+                    isSelected={selectedProgram === program.id}
+                    onToggleDetails={() => toggleProgramDetails(program.id)}
+                  />
                 ))}
               </div>
             </TabsContent>
@@ -153,7 +277,12 @@ const Programs = () => {
             <TabsContent value="تخسيس" className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredPrograms.map(program => (
-                  <ProgramCard key={program.id} program={program} />
+                  <ProgramCard 
+                    key={program.id} 
+                    program={program}
+                    isSelected={selectedProgram === program.id}
+                    onToggleDetails={() => toggleProgramDetails(program.id)}
+                  />
                 ))}
               </div>
             </TabsContent>
@@ -161,7 +290,12 @@ const Programs = () => {
             <TabsContent value="بناء عضلات" className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredPrograms.map(program => (
-                  <ProgramCard key={program.id} program={program} />
+                  <ProgramCard 
+                    key={program.id} 
+                    program={program}
+                    isSelected={selectedProgram === program.id}
+                    onToggleDetails={() => toggleProgramDetails(program.id)}
+                  />
                 ))}
               </div>
             </TabsContent>
@@ -169,7 +303,12 @@ const Programs = () => {
             <TabsContent value="منزلي" className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredPrograms.map(program => (
-                  <ProgramCard key={program.id} program={program} />
+                  <ProgramCard 
+                    key={program.id} 
+                    program={program}
+                    isSelected={selectedProgram === program.id}
+                    onToggleDetails={() => toggleProgramDetails(program.id)}
+                  />
                 ))}
               </div>
             </TabsContent>
@@ -177,7 +316,12 @@ const Programs = () => {
             <TabsContent value="تغذية" className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredPrograms.map(program => (
-                  <ProgramCard key={program.id} program={program} />
+                  <ProgramCard 
+                    key={program.id} 
+                    program={program}
+                    isSelected={selectedProgram === program.id}
+                    onToggleDetails={() => toggleProgramDetails(program.id)}
+                  />
                 ))}
               </div>
             </TabsContent>
@@ -185,7 +329,12 @@ const Programs = () => {
             <TabsContent value="مبتدئين" className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredPrograms.map(program => (
-                  <ProgramCard key={program.id} program={program} />
+                  <ProgramCard 
+                    key={program.id} 
+                    program={program}
+                    isSelected={selectedProgram === program.id}
+                    onToggleDetails={() => toggleProgramDetails(program.id)}
+                  />
                 ))}
               </div>
             </TabsContent>
@@ -251,9 +400,21 @@ type ProgramProps = {
   link: string;
   category: string;
   features: string[];
+  detailedDescription: string;
+  icon?: any;
 };
 
-const ProgramCard = ({ program }: { program: ProgramProps }) => {
+const ProgramCard = ({ 
+  program, 
+  isSelected, 
+  onToggleDetails 
+}: { 
+  program: ProgramProps, 
+  isSelected: boolean,
+  onToggleDetails: () => void
+}) => {
+  const Icon = program.icon || Dumbbell;
+  
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all h-full flex flex-col">
       <div className="h-48 overflow-hidden">
@@ -272,12 +433,35 @@ const ProgramCard = ({ program }: { program: ProgramProps }) => {
         <div className="flex items-center justify-between">
           <h3 className="text-xl font-bold">{program.title}</h3>
           <div className="bg-fitness-green p-2 rounded-full">
-            <Dumbbell className="h-5 w-5 text-fitness-dark" />
+            <Icon className="h-5 w-5 text-fitness-dark" />
           </div>
         </div>
       </CardHeader>
       <CardContent className="flex-grow">
         <p className="text-gray-600 mb-4">{program.description}</p>
+        
+        {/* Program Details - Showed when selected */}
+        {isSelected && (
+          <div className="mt-4 p-4 bg-gray-50 rounded-lg animate-fade-in">
+            <div dangerouslySetInnerHTML={{ __html: program.detailedDescription }} className="text-gray-700 space-y-3" />
+            <button 
+              onClick={onToggleDetails}
+              className="mt-4 text-fitness-purple hover:text-fitness-purple/80 text-sm font-medium"
+            >
+              إخفاء التفاصيل
+            </button>
+          </div>
+        )}
+        
+        {!isSelected && (
+          <button 
+            onClick={onToggleDetails}
+            className="text-fitness-purple hover:text-fitness-purple/80 text-sm font-medium mb-4"
+          >
+            عرض التفاصيل الكاملة
+          </button>
+        )}
+        
         <div className="mt-4">
           <h4 className="font-semibold mb-2">مميزات البرنامج:</h4>
           <ul className="space-y-1">
