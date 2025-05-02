@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
@@ -6,7 +5,7 @@ import { Calendar, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { articles } from '@/data/articles';
+import { getAllArticles } from '@/data';
 import {
   Pagination,
   PaginationContent,
@@ -20,6 +19,7 @@ import {
 const ITEMS_PER_PAGE = 6; // عدد المقالات في كل صفحة
 
 const Blog = () => {
+  const allArticles = getAllArticles();
   const [currentPage, setCurrentPage] = useState(1);
   const [activeCategory, setActiveCategory] = useState('الكل');
   const [searchQuery, setSearchQuery] = useState('');
@@ -30,7 +30,7 @@ const Blog = () => {
   }, [currentPage, activeCategory]);
   
   // تصفية المقالات حسب الفئة المحددة والبحث
-  const filteredArticles = articles.filter(article => {
+  const filteredArticles = allArticles.filter(article => {
     const matchesCategory = activeCategory === 'الكل' || article.category === activeCategory;
     const matchesSearch = searchQuery === '' || 
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -74,7 +74,7 @@ const Blog = () => {
   };
 
   // قائمة الفئات الفريدة من المقالات
-  const categories = ['الكل', ...Array.from(new Set(articles.map(article => article.category)))];
+  const categories = ['الكل', ...Array.from(new Set(allArticles.map(article => article.category)))];
   
   return (
     <div className="min-h-screen flex flex-col">

@@ -2,35 +2,12 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Calendar } from 'lucide-react';
-
-const articles = [
-  {
-    id: 1,
-    title: 'أفضل 5 تمارين كارديو لحرق الدهون',
-    excerpt: 'اكتشف التمارين الهوائية الأكثر فعالية للتخلص من الدهون الزائدة وتحسين صحة القلب والأوعية الدموية.',
-    image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1000',
-    date: '20 أبريل 2025',
-    readTime: '5 دقائق'
-  },
-  {
-    id: 2,
-    title: 'وصفات صحية وسريعة لوجبات ما بعد التمرين',
-    excerpt: 'استعد طاقتك بعد التمرين بوصفات لذيذة ومغذية تساعد على استشفاء العضلات وتعزيز الأداء.',
-    image: 'https://images.unsplash.com/photo-1532384748853-8f54a8f476e2?auto=format&fit=crop&q=80&w=1000',
-    date: '15 أبريل 2025',
-    readTime: '8 دقائق'
-  },
-  {
-    id: 3,
-    title: 'أهمية الراحة والاستشفاء في برنامجك التدريبي',
-    excerpt: 'لماذا تعتبر فترات الراحة ضرورية جداً لتحقيق نتائج أفضل وتجنب الإصابات في رحلتك الرياضية.',
-    image: 'https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&q=80&w=1000',
-    date: '10 أبريل 2025',
-    readTime: '6 دقائق'
-  }
-];
+import { getAllArticles } from '@/data';
 
 const BlogPreview = () => {
+  // Get first 3 articles for preview
+  const previewArticles = getAllArticles().slice(0, 3);
+  
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto">
@@ -40,7 +17,7 @@ const BlogPreview = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articles.map(article => (
+          {previewArticles.map(article => (
             <Card key={article.id} className="overflow-hidden hover:shadow-lg transition-all animate-fade-in">
               <div className="h-48 overflow-hidden">
                 <img 

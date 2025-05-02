@@ -1,16 +1,16 @@
 
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { articles, articleContent } from '@/data/articles';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Share2, BookmarkPlus, ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
+import { getArticleById, getArticleContentById, getArticlesByCategory } from '@/data';
 
 const BlogArticle = () => {
   const { id } = useParams<{ id: string }>();
-  const article = articles.find(a => a.id === Number(id));
+  const article = getArticleById(Number(id));
   const { toast } = useToast();
   
   // التمرير إلى أعلى الصفحة عند تغيير المقال
@@ -36,8 +36,13 @@ const BlogArticle = () => {
     );
   }
 
-  // Get the article content using the numeric ID as a key
-  const content = articleContent[article.id as keyof typeof articleContent] || '<p>محتوى المقال غير متوفر حالياً</p>';
+  // Get the article content using the numeric ID
+  const content = getArticleContentById(article.id);
+  
+  // Get related articles
+  const relatedArticles = getArticlesByCategory(article.category)
+    .filter(relatedArticle => relatedArticle.id !== article.id)
+    .slice(0, 3);
   
   // Handle share action
   const handleShare = () => {
