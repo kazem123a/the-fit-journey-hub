@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Share2, BookmarkPlus, ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
-import { getArticleById, getArticleContentById, getArticlesByCategory } from '@/data';
+import { getArticleById, getArticleContentById, getArticlesByCategory, getAllArticles } from '@/data';
 
 const BlogArticle = () => {
   const { id } = useParams<{ id: string }>();
@@ -170,7 +170,7 @@ const BlogArticle = () => {
             <div className="mb-10">
               <h3 className="text-2xl font-bold mb-6">مقالات ذات صلة</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {articles.filter(a => a.id !== article.id && a.category === article.category).slice(0, 3).map(relatedArticle => (
+                {relatedArticles.map(relatedArticle => (
                   <div key={relatedArticle.id} className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
                     <Link to={`/blog/${relatedArticle.id}`}>
                       <img 
