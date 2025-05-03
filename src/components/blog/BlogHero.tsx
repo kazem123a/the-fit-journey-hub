@@ -8,7 +8,7 @@ interface BlogHeroProps {
 
 const BlogHero = ({ searchQuery, handleSearch }: BlogHeroProps) => {
   return (
-    <div className="text-center mb-12">
+    <div className="text-center mb-12" dir="rtl">
       <h1 className="text-4xl md:text-5xl font-bold mb-4">المدونة</h1>
       <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
         محتوى تثقيفي متجدد حول التمارين، التغذية، ونمط الحياة الصحي

@@ -5,10 +5,12 @@
   <meta charset="utf-8">
   <title>مدرب اللياقة</title>
   <script type="text/javascript">
-    // رمز إعادة التوجيه إلى الصفحة الرئيسية
-    var segmentCount = 1; // قم بتعديل هذا حسب عمق مستودعك
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafgraph/spa-github-pages
+    var pathSegmentsToSkip = 1;
     var l = window.location;
-    var repo = "/the-fit-journey-hub/"; // قم بتغيير هذا إلى اسم المستودع الخاص بك
+    var repo = "/the-fit-journey-hub/"; // تأكد من تغيير هذا إلى اسم المستودع الخاص بك بالضبط
     l.replace(
       l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
       repo + '#' + l.pathname.slice(repo.length) + 
