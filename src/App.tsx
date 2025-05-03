@@ -18,10 +18,9 @@ import BottomNav from "@/components/BottomNav";
 
 const queryClient = new QueryClient();
 
-// استخدام HashRouter بدلاً من BrowserRouter لتوافقية أفضل مع GitHub Pages
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <HashRouter>
+    <HashRouter basename="/">
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -35,7 +34,6 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
         <BottomNav />

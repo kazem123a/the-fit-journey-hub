@@ -6,10 +6,14 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/the-fit-journey-hub/", // Make sure this matches your GitHub repository name exactly
+  base: "/the-fit-journey-hub/", // تأكد من مطابقة اسم مستودع GitHub الخاص بك بالضبط
   server: {
     host: "::",
     port: 8080,
+  },
+  build: {
+    outDir: "dist",
+    minify: true,
   },
   plugins: [
     react(),
