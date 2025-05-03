@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,6 +16,22 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lovable_dev" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- تعريف قاعدة المسار -->
+    <script type="text/javascript">
+      // هذا الكود سيمكن التطبيق من العمل على GitHub Pages
+      (function() {
+        const { pathname } = window.location;
+        const pathSegmentsToSkip = 1; // تعديل هذا حسب عمق مستودعك
+        
+        // إذا كان هناك hash بالفعل، لا داعي لإعادة التوجيه
+        if (!window.location.hash && pathname.split('/').length > pathSegmentsToSkip) {
+          const paths = pathname.split('/').filter(p => p !== '');
+          const newPath = '/' + paths.slice(0, pathSegmentsToSkip).join('/');
+          window.location.replace(`${newPath}#${pathname.slice(newPath.length)}`);
+        }
+      })();
+    </script>
   </head>
 
   <body>

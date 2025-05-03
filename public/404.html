@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>مدرب اللياقة</title>
+  <script type="text/javascript">
+    // رمز إعادة التوجيه إلى الصفحة الرئيسية
+    var segmentCount = 0;
+    var l = window.location;
+    var repo = l.pathname.slice(0, l.pathname.lastIndexOf('/') !== -1 ? 
+                               l.pathname.lastIndexOf('/') + 1 : l.pathname.length);
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      repo + (repo && repo.indexOf('/', repo.length - 1) !== 0 ? '/' : '') +
+      l.pathname.slice(repo.length).split('/').slice(segmentCount).join('/') + 
+      (l.search ? l.search : '') + l.hash
+    );
+  </script>
+</head>
+<body>
+  جاري التحميل...
+</body>
+</html>
