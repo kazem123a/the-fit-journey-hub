@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/", // هنا يمكن تغييره إلى اسم المستودع الخاص بك، مثلاً "/your-repo-name/"
+  base: "/the-fit-journey-hub/", // تغيير هذا إلى اسم المستودع الخاص بك
   server: {
     host: "::",
     port: 8080,

@@ -6,14 +6,12 @@
   <title>مدرب اللياقة</title>
   <script type="text/javascript">
     // رمز إعادة التوجيه إلى الصفحة الرئيسية
-    var segmentCount = 0;
+    var segmentCount = 1; // قم بتعديل هذا حسب عمق مستودعك
     var l = window.location;
-    var repo = l.pathname.slice(0, l.pathname.lastIndexOf('/') !== -1 ? 
-                               l.pathname.lastIndexOf('/') + 1 : l.pathname.length);
+    var repo = "/the-fit-journey-hub/"; // قم بتغيير هذا إلى اسم المستودع الخاص بك
     l.replace(
       l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-      repo + (repo && repo.indexOf('/', repo.length - 1) !== 0 ? '/' : '') +
-      l.pathname.slice(repo.length).split('/').slice(segmentCount).join('/') + 
+      repo + '#' + l.pathname.slice(repo.length) + 
       (l.search ? l.search : '') + l.hash
     );
   </script>
